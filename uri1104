@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long int a,b,i,j,k,l,n1,n2,c,flag;
+    while(1)
+    {
+        k=0,l=0,c=0,flag=0;
+        cin>>a>>b;
+        if(a==0&&b==0)
+            break;
+        int ar[a],br[b],cr[a],dr[b];
+        for(i=0;i<a;i++)
+            cin>>ar[i];
+        for(j=0;j<b;j++)
+            cin>>br[j];
+        sort(ar,ar+i);
+        sort(br,br+j);
+        for(i=0;i<a;i++)
+            if(ar[i]!=ar[i+1])
+            cr[k++]=ar[i];
+
+        for(j=0;j<b;j++)
+            if(br[j]!=br[j+1])
+            dr[l++]=br[j];
+
+        if(k>l)
+        {
+            for(i=0;i<l;i++){
+                for(j=0;j<k;j++)
+            {
+                if(dr[i]==cr[j])
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+               c++;
+            else
+                flag=0;
+            }
+            cout<<c<<endl;
+        }
+        else{
+            for(i=0;i<k;i++){
+                for(j=0;j<l;j++)
+            {
+                if(cr[i]==dr[j])
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+               c++;
+            else
+                flag=0;
+            }
+            cout<<c<<endl;
+        }
+    }
+    return 0;
+}
